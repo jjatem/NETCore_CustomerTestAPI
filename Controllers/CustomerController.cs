@@ -38,7 +38,7 @@ namespace CustomersAPI.Controllers
 
             this.CustomersDataRepo.Add(item);
 
-            return CreatedAtRoute("GetTodo", new { id = item.id }, item);
+            return CreatedAtRoute("GetCustomer", new { id = item.id }, item);
         }
 
         [HttpPut]
