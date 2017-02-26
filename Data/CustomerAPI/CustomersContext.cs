@@ -7,7 +7,7 @@ namespace CustomersAPI.Data
     {
         #region properties
 
-        public DbSet<Customer> Customers {get;set;}
+        public DbSet<Customer> customer {get;set;}
 
         #endregion
 

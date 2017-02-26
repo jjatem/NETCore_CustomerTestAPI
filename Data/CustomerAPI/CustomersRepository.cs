@@ -15,30 +15,30 @@ namespace CustomersAPI.Data
 
         public IEnumerable<Customer> GetAll()
         {
-            return _context.Customers.ToList();
+            return _context.customer.ToList();
         }
 
         public void Add(Customer customer)
         {
-            _context.Customers.Add(customer);
+            _context.customer.Add(customer);
             _context.SaveChanges();
         }
 
         public Customer Find(Int64 key)
         {
-            return _context.Customers.FirstOrDefault(t => t.id == key);
+            return _context.customer.FirstOrDefault(t => t.id == key);
         }
 
         public void Remove(Int64 key)
         {
-            var entity = _context.Customers.First(t => t.id == key);
-            _context.Customers.Remove(entity);
+            var entity = _context.customer.First(t => t.id == key);
+            _context.customer.Remove(entity);
             _context.SaveChanges();
         }
 
         public void Update(Customer customer)
         {
-            _context.Customers.Update(customer);
+            _context.customer.Update(customer);
             _context.SaveChanges();
         }
     }
