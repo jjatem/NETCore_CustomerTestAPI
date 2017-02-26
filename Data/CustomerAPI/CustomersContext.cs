@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace CustomersAPI.Data
-{
+{    
     public class CustomersContext : DbContext
     {
         #region properties
@@ -16,5 +17,19 @@ namespace CustomersAPI.Data
 
         }
         #endregion
+    }
+
+    public static class CustomersContextFactory
+    {
+        public static CustomersContext Create(string ConnectionString)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<CustomersContext>();
+            optionsBuilder.UseMySQL(ConnectionString);
+            
+            var Context = new CustomersContext(optionsBuilder.Options);
+            Context.Database.EnsureCreated();
+
+            return Context;
+        }
     }
 }
