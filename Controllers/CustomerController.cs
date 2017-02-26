@@ -16,9 +16,16 @@ namespace CustomersAPI.Controllers
             this.CustomersDataRepo = new CustomersRepository(this._dbContext);
         }
 
+        [HttpGet]
         public IEnumerable<Customer> GetAll()
         {
             return this.CustomersDataRepo.GetAll();
+        }
+
+        [HttpGet("{id}", Name = "GetCustomer")]
+        public Customer GetById(Int64 id)
+        {
+            return this.CustomersDataRepo.Find(id);
         }
         private CustomersRepository CustomersDataRepo { get; set; }
     }
