@@ -15,6 +15,11 @@ namespace CustomersAPI.Controllers
             _dbContext = dbContext;
             this.CustomersDataRepo = new CustomersRepository(this._dbContext);
         }
-        public CustomersRepository CustomersDataRepo { get; set; }
+
+        public IEnumerable<Customer> GetAll()
+        {
+            return this.CustomersDataRepo.GetAll();
+        }
+        private CustomersRepository CustomersDataRepo { get; set; }
     }
 }
